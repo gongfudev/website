@@ -1,0 +1,109 @@
+---
+---
+<sl-dropdown id="theme-selector" placement="bottom-end" distance="3">
+  <sl-button slot="trigger" size="small" variant="text" caret title="Press \ to toggle">
+    <sl-icon class="only-light" name="sun-fill"></sl-icon>
+    <sl-icon class="only-dark" name="moon-fill"></sl-icon>
+  </sl-button>
+  <sl-menu>
+    <sl-menu-item type="checkbox" value="light">Light</sl-menu-item>
+    <sl-menu-item type="checkbox" value="dark">Dark</sl-menu-item>
+    <sl-divider></sl-divider>
+    <sl-menu-item type="checkbox" value="auto">System</sl-menu-item>
+  </sl-menu>
+</sl-dropdown>
+
+<style>
+  #theme-selector sl-menu {
+    /* Set an initial size to prevent width being too small when first opening on small screen width */
+    width: 140px;
+  }
+
+  #theme-selector sl-button {
+    transition: 250ms scale ease;
+  }
+
+  #theme-selector sl-button::part(base) {
+    color: var(--sl-color-neutral-1000);
+  }
+
+  #theme-selector sl-button::part(label) {
+    display: flex;
+    padding: 0.5rem;
+  }
+
+  #theme-selector sl-icon {
+    font-size: var(--sl-font-size-large);
+  }
+
+  .sl-theme-dark #theme-selector sl-button::part(base) {
+    color: var(--sl-color-neutral-1000);
+  }
+
+  #theme-selector sl-button:hover {
+    scale: 1.25;
+  }
+</style>
+
+<script>
+  function getTheme() {
+    return localStorage.getItem('theme') || 'auto';
+  }
+
+  function isDark() {
+    if (theme === 'auto') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return theme === 'dark';
+  }
+
+  function setTheme(newTheme) {
+    theme = newTheme;
+    localStorage.setItem('theme', theme);
+
+    // Update the UI
+    updateSelection();
+
+    // Toggle the dark mode class
+    document.documentElement.classList.toggle('sl-theme-dark', isDark());
+  }
+
+  function updateSelection() {
+    const menu = document.querySelector('#theme-selector sl-menu');
+    if (!menu) return;
+    [...menu.querySelectorAll('sl-menu-item')].map(item => (item.checked = item.getAttribute('value') === theme));
+  }
+
+  let theme = getTheme();
+
+  // Selection is not preserved when changing page, so update when opening dropdown
+  document.addEventListener('sl-show', event => {
+    const themeSelector = event.target.closest('#theme-selector');
+    if (!themeSelector) return;
+    updateSelection();
+  });
+
+  // Listen for selections
+  document.addEventListener('sl-select', event => {
+    const menu = event.target.closest('#theme-selector sl-menu');
+    if (!menu) return;
+    setTheme(event.detail.item.value);
+  });
+
+  // Update the theme when the preference changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => setTheme(theme));
+
+  // Toggle with backslash
+  document.addEventListener('keydown', event => {
+    if (
+      event.key === '\\' &&
+      !event.composedPath().some(el => ['input', 'textarea'].includes(el?.tagName?.toLowerCase()))
+    ) {
+      event.preventDefault();
+      setTheme(isDark() ? 'light' : 'dark');
+    }
+  });
+
+  // Set the initial theme and sync the UI
+  setTheme(theme);
+</script>

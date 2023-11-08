@@ -1,0 +1,31 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import ThemeSelector from "../components/ThemeSelector.astro";
+
+import '@shoelace-style/shoelace/dist/themes/light.css';
+import '@shoelace-style/shoelace/dist/themes/dark.css';
+import '../styles/Globals.css';
+import '../styles/Base.css';
+import '../styles/Content.css';
+
+interface Props { title: string; }
+const { title } = Astro.props;
+---
+<BaseLayout title={title}>
+  <ThemeSelector></ThemeSelector>
+  <slot />
+</BaseLayout>
+
+<script>
+  import '@shoelace-style/shoelace/dist/shoelace.js';
+  import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+  setBasePath('/shoelace');
+</script>
+
+<style>
+  :global(sl-dropdown) {
+    position: absolute;
+    right: var(--sl-spacing-large);
+    top: var(--sl-spacing-large);
+  }
+</style>

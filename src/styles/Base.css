@@ -1,0 +1,59 @@
+/* Apply `border-box` box sizing model to every element
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice */
+
+html {
+  /* With `border-box` box-sizing, width and height values apply to the
+   * content, padding, and border */
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  /* Inherits the box sizing of the parent element */
+  box-sizing: inherit;
+}
+
+/* Show custom elements only after they're registered */
+
+:not(:defined),
+:not(:defined) * {
+  opacity: 0;
+}
+
+:defined {
+  opacity: 1;
+  transition: 0.1s opacity;
+}
+
+/* Fullbleed */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+/* Base typography and colors */
+
+html {
+  font-family: var(--sl-font-sans);
+  font-size: var(--sl-font-size-medium);
+  line-height: var(--sl-line-height-dense);
+  color: var(--sl-color-neutral-900);
+  background: var(--sl-color-neutral-0);
+}
+
+code, pre, kbd, samp {
+  font-family: var(--sl-font-mono);
+}
+
+a:not([class]) {
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.125em;
+}
+
+/* Effects */
+
+html.sl-theme-dark .only-light,
+html:not(.sl-theme-dark) .only-dark {
+  display: none !important;
+}

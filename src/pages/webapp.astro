@@ -1,0 +1,54 @@
+---
+import ShoelaceLayout from '../layouts/ShoelaceLayout.astro';
+---
+<ShoelaceLayout title="Signals › WebApp">
+  <h1>Hello!</h1>
+  <div class="alert-toast">
+    <sl-button variant="primary">Primary</sl-button>
+    <sl-button variant="success">Success</sl-button>
+    <sl-button variant="neutral">Neutral</sl-button>
+    <sl-button variant="warning">Warning</sl-button>
+    <sl-button variant="danger">Danger</sl-button>
+
+    <sl-alert variant="primary" duration="3000" closable>
+      <sl-icon slot="icon" name="info-circle"></sl-icon>
+      <strong>This is super informative</strong><br />
+      You can tell by how pretty the alert is.
+    </sl-alert>
+
+    <sl-alert variant="success" duration="3000" closable>
+      <sl-icon slot="icon" name="check2-circle"></sl-icon>
+      <strong>Your changes have been saved</strong><br />
+      You can safely exit the app now.
+    </sl-alert>
+
+    <sl-alert variant="neutral" duration="3000" closable>
+      <sl-icon slot="icon" name="gear"></sl-icon>
+      <strong>Your settings have been updated</strong><br />
+      Settings will take effect on next login.
+    </sl-alert>
+
+    <sl-alert variant="warning" duration="3000" closable>
+      <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+      <strong>Your session has ended</strong><br />
+      Please login again to continue.
+    </sl-alert>
+
+    <sl-alert variant="danger" duration="3000" closable>
+      <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
+      <strong>Your account has been deleted</strong><br />
+      We're very sorry to see you go!
+    </sl-alert>
+  </div>
+</ShoelaceLayout>
+
+<script>
+  const container = document.querySelector('.alert-toast');
+
+  ['primary', 'success', 'neutral', 'warning', 'danger'].map(variant => {
+    const button = container?.querySelector(`sl-button[variant="${variant}"]`);
+    const alert = container?.querySelector(`sl-alert[variant="${variant}"]`);
+
+    button?.addEventListener('click', () => alert?.toast());
+  });
+</script>

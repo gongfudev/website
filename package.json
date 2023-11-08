@@ -1,0 +1,47 @@
+{
+  "name": "@gongfuio/new-astro-repo",
+  "description": "Starter project with Astro, Shoelace and Lit",
+  "author": "Gōng-fu I/O (https://github.com/gongfuio)",
+  "license": "Apache-2.0",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "format": "prettier \"src/**/*.{astro,js,html,css}\" --write",
+    "lint": "eslint src --ext .js,.astro",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@astrojs/lit": "^3.0.2",
+    "@astrojs/vercel": "^5.2.0",
+    "@shoelace-style/shoelace": "^2.9.0",
+    "@webcomponents/template-shadowroot": "^0.2.1",
+    "astro": "^3.4.4",
+    "lit": "^2.8.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-astro": "^0.29.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.1",
+    "vite-plugin-static-copy": "^0.17.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "homepage": "https://github.com/gongfuio/new-astro-repo#readme",
+  "bugs": {
+    "url": "https://github.com/gongfuio/new-astro-repo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh@github.com:gongfuio/new-astro-repo.git"
+  }
+}

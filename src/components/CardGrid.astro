@@ -1,0 +1,23 @@
+---
+---
+<ul role="list" class="card-grid">
+  <slot></slot>
+</ul>
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: var(--sl-spacing-x-large);
+    padding: 0;
+  }
+
+  .card-grid :global(h2) {
+    margin-top: 0;
+  }
+
+  .card-grid :global(small) {
+    font-size: var(--sl-font-size-medium-smaller);
+    font-weight: normal;
+  }
+</style>

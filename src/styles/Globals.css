@@ -1,0 +1,37 @@
+/* COLORS */
+
+/* Light theme */
+:root {
+  color-scheme: normal;
+
+  /* Primary: accent color */
+  --sl-color-primary-50:  var(--sl-color-blue-50);
+  --sl-color-primary-100: var(--sl-color-blue-100);
+  --sl-color-primary-200: var(--sl-color-blue-200);
+  --sl-color-primary-300: var(--sl-color-blue-300);
+  --sl-color-primary-400: var(--sl-color-blue-400);
+  --sl-color-primary-500: var(--sl-color-blue-500);
+  --sl-color-primary-600: var(--sl-color-blue-600);
+  --sl-color-primary-700: var(--sl-color-blue-700);
+  --sl-color-primary-800: var(--sl-color-blue-800);
+  --sl-color-primary-900: var(--sl-color-blue-900);
+  --sl-color-primary-950: var(--sl-color-blue-950);
+
+  /* Success */
+  --sl-color-success-50:  var(--sl-color-emerald-50);
+  --sl-color-success-100: var(--sl-color-emerald-100);
+  --sl-color-success-200: var(--sl-color-emerald-200);
+  --sl-color-success-300: var(--sl-color-emerald-300);
+  --sl-color-success-400: var(--sl-color-emerald-400);
+  --sl-color-success-500: var(--sl-color-emerald-500);
+  --sl-color-success-600: var(--sl-color-emerald-600);
+  --sl-color-success-700: var(--sl-color-emerald-700);
+  --sl-color-success-800: var(--sl-color-emerald-800);
+  --sl-color-success-900: var(--sl-color-emerald-900);
+  --sl-color-success-950: var(--sl-color-emerald-950);
+}
+
+/* Dark theme */
+.sl-theme-dark {
+  color-scheme: dark;
+}
