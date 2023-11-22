@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/vercel": "^5.2.0",
     "@shoelace-style/shoelace": "^2.9.0",
-    "astro": "^3.4.4",
+    "astro": "^3.6.0",
     "lit": "^2.8.0"
   },
   "devDependencies": {
