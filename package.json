@@ -1,5 +1,5 @@
 {
-  "name": "@gongfuio/new-astro-repo",
+  "name": "@gongfuio/‹new-astro-repo›",
   "description": "Starter project with Astro, Shoelace and Lit",
   "author": "Gōng-fu I/O (https://github.com/gongfuio)",
   "license": "Apache-2.0",
@@ -34,12 +34,12 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "homepage": "https://github.com/gongfuio/new-astro-repo#readme",
+  "homepage": "https://github.com/gongfuio/‹new-astro-repo›#readme",
   "bugs": {
-    "url": "https://github.com/gongfuio/new-astro-repo/issues"
+    "url": "https://github.com/gongfuio/‹new-astro-repo›/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh@github.com:gongfuio/new-astro-repo.git"
+    "url": "git+ssh@github.com:gongfuio/‹new-astro-repo›.git"
   }
 }
