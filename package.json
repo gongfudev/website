@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^7.3.5",
-    "@shoelace-style/shoelace": "^2.12.0",
+    "@shoelace-style/shoelace": "^2.14.0",
     "astro": "^4.4.13",
-    "lit": "^3.1.1"
+    "lit": "^3.1.2"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^7.1.1",
