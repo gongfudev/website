@@ -27,8 +27,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.31.0",
     "husky": "^9.0.11",
-    "prettier": "^3.1.1",
-    "prettier-plugin-astro": "^0.12.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
     "vite-plugin-static-copy": "^1.0.1"
   },
   "publishConfig": {
