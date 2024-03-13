@@ -16,10 +16,10 @@ As a ‹role›, I'd like to ‹feature short description› [ , in order to ‹
 
 ### Roles
 
-* _Visitor_ of the Gōng-fu I/O website (possibly a candidate _member_)
-* _Member_ of the Gōng-fu I/O meetups
-* _Practitioner_ of the Gōng-fu I/O meetups (is also a member)
-* _Organizer_ of the Gōng-fu I/O meetups (is also a member).
+* _Visitor_ of the Gōng-fu DEV website (possibly a candidate _member_)
+* _Member_ of the Gōng-fu DEV meetups
+* _Practitioner_ of the Gōng-fu DEV meetups (is also a member)
+* _Organizer_ of the Gōng-fu DEV meetups (is also a member).
 
 ### A good user story should be (I-N-V-E-S-T principle)
 

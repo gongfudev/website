@@ -1,7 +1,7 @@
 {
-  "name": "@gongfuio/website",
-  "description": "Website of Gōng-fu I/O, built with Astro, Shoelace and Lit",
-  "author": "Gōng-fu I/O (https://github.com/gongfuio)",
+  "name": "@gongfudev/website",
+  "description": "Website of Gōng-fu DEV, built with Astro, Shoelace and Lit",
+  "author": "Gōng-fu DEV (https://github.com/gongfudev)",
   "license": "Apache-2.0",
   "type": "module",
   "version": "1.0.0",
@@ -35,12 +35,12 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "homepage": "https://github.com/gongfuio/website#readme",
+  "homepage": "https://github.com/gongfudev/website#readme",
   "bugs": {
-    "url": "https://github.com/gongfuio/website/issues"
+    "url": "https://github.com/gongfudev/website/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh@github.com:gongfuio/website.git"
+    "url": "git+ssh@github.com:gongfudev/website.git"
   }
 }

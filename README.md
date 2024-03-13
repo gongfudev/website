@@ -1,8 +1,8 @@
-# Gōng-fu I/O website
+# Gōng-fu DEV website
 
-Website of Gōng-fu I/O meetup, rewritten as a progressive web app (PWA).
+Website of Gōng-fu DEV meetup, rewritten as a progressive web app (PWA).
 
-For our current productive website, visit the [gongfuio.github.com](https://github.com/gongfuio/gongfuio.github.com) repository.
+For our current productive website, visit the [gongfudev.github.com](https://github.com/gongfudev/gongfudev.github.com) repository.
 
 ## Status
 
