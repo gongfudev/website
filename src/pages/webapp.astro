@@ -45,7 +45,7 @@ import ShoelaceLayout from '../layouts/ShoelaceLayout.astro';
 <script>
   const container = document.querySelector('.alert-toast');
 
-  ['primary', 'success', 'neutral', 'warning', 'danger'].map(variant => {
+  ['primary', 'success', 'neutral', 'warning', 'danger'].forEach(variant => {
     const button = container?.querySelector(`sl-button[variant="${variant}"]`);
     const alert = container?.querySelector(`sl-alert[variant="${variant}"]`);
 

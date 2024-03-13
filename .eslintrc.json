@@ -3,6 +3,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:astro/recommended",
+    "standard",
     "prettier" // shoud come last (@see https://github.com/prettier/eslint-config-prettier#installation)
   ],
   "parser": "@typescript-eslint/parser",
