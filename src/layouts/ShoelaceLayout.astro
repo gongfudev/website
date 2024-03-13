@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import MiniLayout from "./MiniLayout.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
 
 import '@shoelace-style/shoelace/dist/themes/light.css';
@@ -11,10 +11,10 @@ import '../styles/Content.css';
 interface Props { title: string; }
 const { title } = Astro.props;
 ---
-<BaseLayout title={title}>
+<MiniLayout title={title}>
   <ThemeSelector></ThemeSelector>
   <slot />
-</BaseLayout>
+</MiniLayout>
 
 <script>
   import '@shoelace-style/shoelace/dist/shoelace.js';
