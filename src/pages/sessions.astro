@@ -8,20 +8,20 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 
-const projects = (await getCollection('work')).sort(
+const projects = (await getCollection('sessions')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
 
 <BaseLayout
-	title="My Work | Jeanine White"
-	description="Learn about Jeanine White's most recent projects"
+	title="Sessions | Gōng-fu DEV"
+	description="Learn about our most recent study sessions"
 >
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
-				title="My Work"
-				tagline="See my most recent projects below to get an idea of my past experience."
+				title="Hack sessions"
+				tagline="See our most recent code & study sessions below to get an idea of our past projects."
 				align="start"
 			/>
 			<Grid variant="offset">

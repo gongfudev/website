@@ -9,15 +9,15 @@ import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
 
 interface Props {
-	entry: CollectionEntry<'work'>;
+	entry: CollectionEntry<'sessions'>;
 }
 
 // This is a dynamic route that generates a page for every Markdown file in src/content/
 // Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
 // https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
-	const work = await getCollection('work');
-	return work.map((entry) => ({
+	const session = await getCollection('sessions');
+	return session.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
 	}));
@@ -32,7 +32,7 @@ const { Content } = await entry.render();
 		<div class="stack gap-15">
 			<header>
 				<div class="wrapper stack gap-2">
-					<a class="back-link" href="/work/"><Icon icon="arrow-left" /> Work</a>
+					<a class="back-link" href="/sessions/"><Icon icon="arrow-left" /> Sessions</a>
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
