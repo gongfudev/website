@@ -30,8 +30,8 @@ const projects = (await getCollection('work'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Pratiquer ensemble pour apprendre"
-					tagline="Un projet d'étude — un ou plusieurs sujets d'intérêt commun — des rencontres régulières — pour perfectionner ensemble, en petit groupe, en apprenant l'un de l'autre et par l'étude, notre pratique du développement logiciel. Partage et plaisir, de débuter à nouveau."
+					title="Practice together to learn"
+					tagline="A study project — subjects of common interest — regular meetings — to improve together, our software development practice. In small groups, by learning from each other and through study. Starting from scratch."
 					align="start"
 				>
 					<div class="roles">
@@ -55,8 +55,8 @@ const projects = (await getCollection('work'))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3>Sessions</h3>
+					<p>Take a look below at our latest study sessions.</p>
 				</header>
 
 				<div class="gallery">
@@ -83,20 +83,16 @@ const projects = (await getCollection('work'))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Mentions</h3>
 					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
+						We've been fortunate enough to present our sessions in several local groups.
+            Here's one presentation of 2014.
 					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
+            <li class="mention-card">
+              <big><a href="https://gongfu.dev/presentations/10-min/">Gōng-fu DEV in 10&nbsp;min.</a></big>
+            </li>
 					</Grid>
 				</div>
 			</section>
