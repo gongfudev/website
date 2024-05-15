@@ -23,6 +23,18 @@ export async function getStaticPaths() {
 	}));
 }
 
+// Fix for `getStaticPaths` throwing the bizarre following error when using `astro dev`
+// and `output: "server"` in `astro.config.mjs`; the exaplanation seems to be here:
+// https://docs.astro.build/en/guides/server-side-rendering/#opting-in-to-pre-rendering-in-server-mode
+//
+// and the error is:
+//
+// > 22:09:41 [WARN] [router] getStaticPaths() ignored in dynamic page /src/pages/sessions/[...slug].astro.
+// > Add `export const prerender = true;` to prerender the page as static HTML during the build process.
+//
+// fix:
+// export const prerender = true;
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
