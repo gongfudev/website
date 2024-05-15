@@ -8,32 +8,35 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 
+import HackSessions from '../components/HackSessions.astro';
+
 const projects = (await getCollection('sessions')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
 
 <BaseLayout
-	title="Sessions | Gōng-fu DEV"
-	description="Learn about our most recent study sessions"
+  title='Sessions | Gōng-fu DEV'
+  description='Learn about our most recent study sessions'
 >
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="Hack sessions"
-				tagline="See our most recent code & study sessions below to get an idea of our past projects."
-				align="start"
-			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
-		</main>
-		<ContactCTA />
-	</div>
+  <div class='stack gap-20'>
+    <main class='wrapper stack gap-8'>
+      <Hero
+        title='Hack sessions'
+        tagline='See our most recent code & study sessions below to get an idea of our past projects.'
+        align='start'
+      />
+      <HackSessions />
+      <Grid variant='offset'>
+        {
+          projects.map((project) => (
+            <li>
+              <PortfolioPreview project={project} />
+            </li>
+          ))
+        }
+      </Grid>
+    </main>
+    <ContactCTA />
+  </div>
 </BaseLayout>

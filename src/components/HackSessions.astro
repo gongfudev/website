@@ -1,0 +1,31 @@
+---
+import ShoelaceLayout from '../layouts/ShoelaceLayout.astro';
+import SessionCard from '../components/SessionCard.astro';
+import commentsData from '../data/issues.json';
+
+const reversedCommentsData = [...commentsData].reverse();
+---
+
+<ShoelaceLayout title='gfio-sessions'>
+  <div class='gfio-sessions'>
+    <!-- <h1>Gōng-fu DEV Weekly · Hack Sessions</h1> -->
+    {
+      reversedCommentsData.map((session) => (
+        <SessionCard
+          title={session.title}
+          body={session.body}
+          author={session.author}
+          createdAt={session.createdAt}
+          comments={session.comments.nodes}
+        />
+      ))
+    }
+  </div>
+</ShoelaceLayout>
+
+<style>
+  .gfio-sessions {
+    font-family: var(--sl-font-sans);
+    font-size: var(--sl-font-size-large);
+  }
+</style>
