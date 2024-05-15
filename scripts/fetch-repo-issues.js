@@ -3,17 +3,29 @@
 // -----------------------------
 // Define the configuration data
 
-const usage = "This script fetches issues from the specified github repo and saves them to a file or prints them to stdout, in JSON format."
-const owner = "gongfudev";
-const repo = "sessions";
-const token = getGithubAccessTokenFromDotEnv();
-const outfile = "src/data/issues.json";
-
 // --------------------
 // Handle CLI arguments
 
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+
+// --------------------------------------------------------------------------------------
+// Main script - fetch issues from gfio sessions repo and save to JSON or print to stdout
+
+import {
+  fetchAllIssues,
+  fetchAllIssuesWithComments,
+  getGithubAccessToken,
+  getGithubAccessTokenFromDotEnv,
+} from "./fetch-utils.js";
+
+import { writeFile } from "fs/promises";
+
+const usage =
+  "\nThis script fetches issues from the specified github repo and saves them to a file or prints them to stdout, in JSON format.";
+const owner = "gongfudev";
+const repo = "sessions";
+const outfile = "src/data/issues.json";
 
 const argv = yargs(hideBin(process.argv))
   .usage(usage)
@@ -57,22 +69,11 @@ const argv = yargs(hideBin(process.argv))
 if (argv.commented) {
   console.error("Fetching only commented issues...");
 } else {
-  console.error('Fetching all issues...');
+  console.error("Fetching all issues...");
 }
 
-// --------------------------------------------------------------------------------------
-// Main script - fetch issues from gfio sessions repo and save to JSON or print to stdout
-
-import {
-  fetchAllIssues,
-  fetchAllIssuesWithComments,
-  getGithubAccessToken,
-  getGithubAccessTokenFromDotEnv,
-} from "./fetch-utils.js";
-
-
-
-var issues = [];
+let issues = [];
+const token = getGithubAccessTokenFromDotEnv();
 
 if (argv.commented) {
   issues = await fetchAllIssuesWithComments(
@@ -88,8 +89,6 @@ if (argv.commented) {
 if (argv.reversed) {
   issues.reverse();
 }
-
-import { writeFile } from 'fs/promises';
 
 const issuesJSON = JSON.stringify(issues, null, 2);
 

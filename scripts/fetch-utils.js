@@ -5,9 +5,13 @@
  * This file contains utility functions for fetching data from GitHub.
  */
 
-import fs from "fs";
+import fs, { readFileSync } from "fs";
 import os from "os";
 import path from "path";
+
+import { exit } from "process";
+
+import { readFile } from "fs/promises";
 
 /**
  * getGithubAccessToken gets the token string starting with ghp_ from ~/.netrc
@@ -25,7 +29,7 @@ export function getGithubAccessToken() {
   const lines = netrc.split("\n");
 
   // Iterate over each line in the .netrc file.
-  for (let line of lines) {
+  for (const line of lines) {
     // Trim leading and trailing whitespace from the line and split it into tokens.
     const tokens = line.trim().split(/\s+/);
 
@@ -42,9 +46,6 @@ export function getGithubAccessToken() {
   return null;
 }
 
-import { readFileSync } from "fs";
-import { exit } from "process";
-
 /**
  * getGithubAccessTokenFromDotEnv reads the GitHub access token from the .env file in format
  *
@@ -53,22 +54,27 @@ import { exit } from "process";
  * @returns {string} the token string
  */
 export function getGithubAccessTokenFromDotEnv() {
+  const envErrorMsg =
+    `Your .env file should contain a line with a valid github access token:\n` +
+    `GITHUB_ACCESS_TOKEN=ghp_...`;
+
   let data;
   try {
     data = readFileSync(".env", "utf8");
   } catch (error) {
-    console.error(`Failed to read .env file: ${error}`);
+    console.error(`${error}`);
+    console.error(`${envErrorMsg}`);
     process.exit(1);
   }
 
   const lines = data.split("\n");
-  for (let line of lines) {
+  for (const line of lines) {
     if (line.startsWith("GITHUB_ACCESS_TOKEN=")) {
       return line.split("=")[1];
     }
   }
 
-  console.error("Failed to find GITHUB_ACCESS_TOKEN in .env file");
+  console.error(`${envErrorMsg}`);
   process.exit(1);
 }
 
@@ -212,8 +218,6 @@ function logRateLimits(response) {
   const date = new Date(epochSeconds * 1000);
   console.error("Rate limit reset:", date.toLocaleString());
 }
-
-import { readFile } from "fs/promises";
 
 /**
  * getAllIssues gets the issue data from a local file
