@@ -17,7 +17,7 @@ import {
   fetchAllIssuesWithComments,
   getGithubAccessToken,
   getGithubAccessTokenFromDotEnv,
-} from "./fetch-utils.js";
+} from "./utils/fetch-utils.js";
 
 import { writeFile } from "fs/promises";
 

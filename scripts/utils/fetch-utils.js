@@ -9,9 +9,8 @@ import fs, { readFileSync } from "fs";
 import os from "os";
 import path from "path";
 
-import { exit } from "process";
-
 import { readFile } from "fs/promises";
+
 
 /**
  * getGithubAccessToken gets the token string starting with ghp_ from ~/.netrc

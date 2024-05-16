@@ -26,7 +26,6 @@ const projects = (await getCollection('sessions')).sort(
         tagline='See our most recent code & study sessions below to get an idea of our past projects.'
         align='start'
       />
-      <HackSessions />
       <Grid variant='offset'>
         {
           projects.map((project) => (
@@ -36,6 +35,7 @@ const projects = (await getCollection('sessions')).sort(
           ))
         }
       </Grid>
+      <HackSessions />
     </main>
     <ContactCTA />
   </div>
