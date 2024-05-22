@@ -48,7 +48,9 @@ const { Content } = await entry.render();
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
-								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+                {entry.data.audience.map((t) => <Pill style="audience">{t}</Pill>)}
+								{entry.data.tracks.map((t) => <Pill style="tracks">{t}</Pill>)}
+                {entry.data.techno.map((t) => <Pill style="techno">{t}</Pill>)}
 							</div>
 							<p class="description">{entry.data.description}</p>
 						</div>
