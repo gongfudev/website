@@ -8,8 +8,6 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 
-import HackSessions from '../components/HackSessions.astro';
-
 const projects = (await getCollection('sessions')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
@@ -26,17 +24,26 @@ const projects = (await getCollection('sessions')).sort(
         tagline='See our most recent code & study sessions below to get an idea of our past projects.'
         align='start'
       />
-      <Grid variant='offset'>
+      <Grid>
         {
-          projects.map((project) => (
+          projects.slice(0, 6).map((project) => (
             <li>
               <PortfolioPreview project={project} />
             </li>
           ))
         }
       </Grid>
-      <HackSessions />
-    </main>
-    <ContactCTA />
+      <Grid>
+        <li>
+          List of ‹Audience› tags
+        </li>
+        <li>
+          List of ‹Tracks› tags
+        </li>
+        <li>
+          List of ‹Techno› tags
+        </li>
+      </Grid>
+      <ContactCTA />
   </div>
 </BaseLayout>
