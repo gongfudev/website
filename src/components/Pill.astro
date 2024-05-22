@@ -1,4 +1,7 @@
-<div class="pill"><slot /></div>
+---
+const { style } = Astro.props;
+---
+<div class:list={[ 'pill', style ]}><slot /></div>
 
 <style>
 	.pill {
@@ -13,4 +16,17 @@
 		line-height: 1.35;
 		white-space: nowrap;
 	}
+
+  .pill.audience {
+		border-color: var(--accent-dark);
+    background-color: var(--accent-dark);
+  }
+  .pill.tracks {
+    border-color: var(--accent-regular);
+    background-color: var(--accent-regular);
+  }
+  .pill.techno {
+		border-color: var(--accent-light);
+    background-color: var(--accent-light);
+  }
 </style>
