@@ -1,18 +1,18 @@
 ---
-title: Hack Session 610 ✼ Remotely
+title: Hack Session 609 ✼ Remotely
 publishDate: 2024-01-10
 img: /assets/stock-1L.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
 
 tracks: ["web"]
-technos: ["vercel","lit","astro"]
-audiences: ["intermediate"]
+technos: ["vercel"]
+audiences: ["beginner","advanced","intermediate"]
 ---
 
-## 10.01.2024
+## 03.01.2024
 
-Wrap-up of our [Gōng-fu I/O Weekly · Hack Session #610 ✼ Remotely ✼](https://www.meetup.com/gōngfuio/events/298075502/) meetup.
+Wrap-up of our [Gōng-fu I/O Weekly · Hack Session #609 ✼ Remotely ✼](https://www.meetup.com/gōngfuio/events/297948704/) meetup.
 
 ### Projects
 
@@ -21,7 +21,7 @@ Wrap-up of our [Gōng-fu I/O Weekly · Hack Session #610 ✼ Remotely ✼](https
 
 ### See also
 
-* #609 Previous session
+* #608 Previous session
 * #610 Next session
 
 [olange](https://github.com/olange) | 2024-01-10

@@ -1,0 +1,25 @@
+---
+// This page diplays all techno tags found in the sessions collection
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const allSessions = await getCollection('sessions');
+const technos = [
+  ...new Set(allSessions.map((session) => session.data.technos).flat()),
+];
+const pageTitle = 'Tag Index';
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  {
+    (
+      <div class='tags'>
+        {technos.map((techno) => (
+          <p class='tag'>
+            <a href={`/technos/${techno}`}>{techno}</a>
+          </p>
+        ))}
+      </div>
+    )
+  }
+</BaseLayout>

@@ -8667,7 +8667,7 @@
       "url": "https://github.com/olange"
     },
     "createdAt": "2024-04-24T21:23:38Z",
-    "body": "## 01.05.2024\r\n\r\nWrap-up of our [Gōng-fu I/O Weekly · Hack Session #626 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfuio/events/300357083/) meetup.\r\n\r\n### Projects\r\n\r\n• [GitHub › GraphQL API › Export issues and comments of @gongfudev/sessions](https://github.com/rudifa/astro-gfio-sessions-comments) — @olange and @rudifa  \r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #625 Previous session\r\n* #627 Next session",
+    "body": "## 01.05.2024\r\n\r\nWrap-up of our [Gōng-fu DEV Weekly · Hack Session #626 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfuio/events/300357083/) meetup.\r\n\r\n### Projects\r\n\r\n• [GitHub › GraphQL API › Export issues and comments of @gongfudev/sessions](https://github.com/rudifa/astro-gfio-sessions-comments) — @olange and @rudifa  \r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #625 Previous session\r\n* #627 Next session",
     "comments": {
       "nodes": [
         {
@@ -8708,7 +8708,7 @@
       "url": "https://github.com/olange"
     },
     "createdAt": "2024-05-01T13:26:17Z",
-    "body": "## 08.05.2024\r\n\r\nWrap-up of our [Gōng-fu I/O Weekly · Hack Session #627 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfuio/events/300499730/) meetup.\r\n\r\n### Projects\r\n\r\n• [Gōng-fu DEV's new website](https://github.com/gongfudev/website) with [Astro](https://astro.build/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #626 Previous session\r\n* #628 Next session",
+    "body": "## 08.05.2024\r\n\r\nWrap-up of our [Gōng-fu DEV Weekly · Hack Session #627 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfuio/events/300499730/) meetup.\r\n\r\n### Projects\r\n\r\n• [Gōng-fu DEV's new website](https://github.com/gongfudev/website) with [Astro](https://astro.build/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #626 Previous session\r\n* #628 Next session",
     "comments": {
       "nodes": []
     }
@@ -8721,7 +8721,7 @@
       "url": "https://github.com/olange"
     },
     "createdAt": "2024-05-08T18:47:40Z",
-    "body": "## 15.05.2024\r\n\r\nWrap-up of our [Gōng-fu I/O Weekly · Hack Session #628 ✼ Remotely ✼](https://www.meetup.com/gōngfudev/events/300642395/) meetup.\r\n\r\n### Projects\r\n\r\n• [Astro › Content Collections](https://docs.astro.build/en/guides/content-collections/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #627 Previous session\r\n* #629 Next session",
+    "body": "## 15.05.2024\r\n\r\nWrap-up of our [Gōng-fu DEV Weekly · Hack Session #628 ✼ Remotely ✼](https://www.meetup.com/gōngfudev/events/300642395/) meetup.\r\n\r\n### Projects\r\n\r\n• [Astro › Content Collections](https://docs.astro.build/en/guides/content-collections/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #627 Previous session\r\n* #629 Next session",
     "comments": {
       "nodes": [
         {
@@ -8731,7 +8731,7 @@
             "url": "https://github.com/olange"
           },
           "createdAt": "2024-05-15T21:05:05Z",
-          "body": "Review of @rudifa's work on migrating the descriptions and comments of the issues of this repository, using the GitHub GraphQL API, to a [plain JSON file](https://github.com/rudifa/gongfudev-website/blob/add-hack-sessions/src/data/issues.json); and discussion about how to pivot this data to the upcoming website of Gōng-fu DEV, built with Astro (gongfudev/website#13)."
+          "body": "## Feedback on the session of @olange and @rudifa\r\n\r\nReview of @rudifa's work on migrating the descriptions and comments of the issues of this repository, using the GitHub GraphQL API, to a [plain JSON file](https://github.com/rudifa/gongfudev-website/blob/add-hack-sessions/src/data/issues.json); and discussion about how to pivot this data to the upcoming website of Gōng-fu DEV, built with Astro (gongfudev/website#13)."
         }
       ]
     }
@@ -8744,7 +8744,30 @@
       "url": "https://github.com/olange"
     },
     "createdAt": "2024-05-15T16:51:08Z",
-    "body": "## 22.05.2024\r\n\r\nWrap-up of our [Gōng-fu I/O Weekly · Hack Session #629 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfudev/events/300788864/) meetup.\r\n\r\n### Projects\r\n\r\n• [Astro › Content Collections](https://docs.astro.build/en/guides/content-collections/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #628 Previous session\r\n* `TODO` Next session",
+    "body": "## 22.05.2024\r\n\r\nWrap-up of our [Gōng-fu DEV Weekly · Hack Session #629 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfudev/events/300788864/) meetup.\r\n\r\n### Projects\r\n\r\n• [Astro › Content Collections](https://docs.astro.build/en/guides/content-collections/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #628 Previous session\r\n* #630 Next session",
+    "comments": {
+      "nodes": [
+        {
+          "author": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/673088?u=ee2e7d4dcbe39c60ff7a45cf49cc1f09ceafe945&v=4",
+            "login": "olange",
+            "url": "https://github.com/olange"
+          },
+          "createdAt": "2024-05-22T21:36:04Z",
+          "body": "## Feedback on the session of @olange and @rudifa\r\n\r\n* gongfudev/website#14  \r\n  Integrated @rudifa's work on migrating the issues and comments from this repo into the `src/content/sessions` content collection of our new Astro website\r\n* Refactored the `tag` property into `audience`/`tracks`/`techno` properties\r\n* Discussed how to list those new `audience`/`tracks`/`techno` properties  \r\n  and how to regroup the sessions around them"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Hack Session 630 ✼ Remotely",
+    "author": {
+      "avatarUrl": "https://avatars.githubusercontent.com/u/673088?u=ee2e7d4dcbe39c60ff7a45cf49cc1f09ceafe945&v=4",
+      "login": "olange",
+      "url": "https://github.com/olange"
+    },
+    "createdAt": "2024-05-22T21:37:18Z",
+    "body": "## 29.05.2024\r\n\r\nWrap-up of our [Gōng-fu DEV Weekly · Hack Session #630 ✼ Remotely ✼](https://www.meetup.com/gōngfudev/events/300928990/) meetup.\r\n\r\n### Projects\r\n\r\n• [Astro › Content Collections](https://docs.astro.build/en/guides/content-collections/) — @olange and @rudifa\r\n• [Flutter](https://flutter.dev) — @andreaskundig and @david-hodgetts\r\n\r\n### See also\r\n\r\n* #629 Previous session\r\n* `TODO` Next session",
     "comments": {
       "nodes": []
     }

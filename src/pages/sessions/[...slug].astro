@@ -9,18 +9,18 @@ import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
 
 interface Props {
-	entry: CollectionEntry<'sessions'>;
+  entry: CollectionEntry<'sessions'>;
 }
 
 // This is a dynamic route that generates a page for every Markdown file in src/content/
 // Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
 // https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
-	const session = await getCollection('sessions');
-	return session.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry },
-	}));
+  const session = await getCollection('sessions');
+  return session.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
 // Fix for `getStaticPaths` throwing the bizarre following error when using `astro dev`
@@ -37,129 +37,151 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// console.log('[...slug] entry.data.tracks', entry.data.tracks);
+// console.log('[...slug] entry.data.technos', entry.data.technos);
+// console.log('[...slug] entry.data.audiences', entry.data.audiences);
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
-	<div class="stack gap-20">
-		<div class="stack gap-15">
-			<header>
-				<div class="wrapper stack gap-2">
-					<a class="back-link" href="/sessions/"><Icon icon="arrow-left" /> Sessions</a>
-					<Hero title={entry.data.title} align="start">
-						<div class="details">
-							<div class="tags">
-                {entry.data.audience.map((t) => <Pill style="audience">{t}</Pill>)}
-								{entry.data.tracks.map((t) => <Pill style="tracks">{t}</Pill>)}
-                {entry.data.techno.map((t) => <Pill style="techno">{t}</Pill>)}
-							</div>
-							<p class="description">{entry.data.description}</p>
-						</div>
-					</Hero>
-				</div>
-			</header>
-			<main class="wrapper">
-				<div class="stack gap-10 content">
-					{entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />}
-					<div class="content">
-						<Content />
-					</div>
-				</div>
-			</main>
-		</div>
-		<ContactCTA />
-	</div>
+  <div class='stack gap-20'>
+    <div class='stack gap-15'>
+      <header>
+        <div class='wrapper stack gap-2'>
+          <a class='back-link' href='/sessions/'
+            ><Icon icon='arrow-left' /> Sessions</a
+          >
+          <Hero title={entry.data.title} align='start'>
+            <div class='details'>
+              <div class='tags'>
+                {
+                  entry.data.audiences.map((audience) => (
+                    <Pill style='audience' tagName={audience} />
+                  ))
+                }
+                {
+                  entry.data.tracks.map((track) => (
+                    <Pill style='track' tagName={track} />
+                  ))
+                }
+                {
+                  entry.data.technos.map((techno) => (
+                    <Pill style='techno' tagName={techno} />
+                  ))
+                }
+              </div>
+              <p class='description'>{entry.data.description}</p>
+            </div>
+          </Hero>
+        </div>
+      </header>
+      <main class='wrapper'>
+        <div class='stack gap-10 content'>
+          {
+            entry.data.img && (
+              <img src={entry.data.img} alt={entry.data.img_alt || ''} />
+            )
+          }
+          <div class='content'>
+            <Content />
+          </div>
+        </div>
+      </main>
+    </div>
+    <ContactCTA />
+  </div>
 </BaseLayout>
 
 <style>
-	header {
-		padding-bottom: 2.5rem;
-		border-bottom: 1px solid var(--gray-800);
-	}
+  header {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--gray-800);
+  }
 
-	.back-link {
-		display: none;
-	}
+  .back-link {
+    display: none;
+  }
 
-	.details {
-		display: flex;
-		flex-direction: column;
-		padding: 0.5rem;
-		gap: 1.5rem;
-		justify-content: space-between;
-		align-items: center;
-	}
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-	.tags {
-		display: flex;
-		gap: 0.5rem;
-	}
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+  }
 
-	.description {
-		font-size: var(--text-lg);
-		max-width: 54ch;
-	}
+  .description {
+    font-size: var(--text-lg);
+    max-width: 54ch;
+  }
 
-	.content {
-		max-width: 65ch;
-		margin-inline: auto;
-	}
+  .content {
+    max-width: 65ch;
+    margin-inline: auto;
+  }
 
-	.content > :global(* + *) {
-		margin-top: 1rem;
-	}
+  .content > :global(* + *) {
+    margin-top: 1rem;
+  }
 
-	.content :global(h1),
-	.content :global(h2),
-	.content :global(h3),
-	.content :global(h4),
-	.content :global(h5) {
-		margin: 1.5rem 0;
-	}
+  .content :global(h1),
+  .content :global(h2),
+  .content :global(h3),
+  .content :global(h4),
+  .content :global(h5) {
+    margin: 1.5rem 0;
+  }
 
-	.content :global(img) {
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-sm);
-		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
-	}
+  .content :global(img) {
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    background: var(--gradient-subtle);
+    border: 1px solid var(--gray-800);
+  }
 
-	.content :global(blockquote) {
-		font-size: var(--text-lg);
-		font-family: var(--font-brand);
-		font-weight: 600;
-		line-height: 1.1;
-		padding-inline-start: 1.5rem;
-		border-inline-start: 0.25rem solid var(--accent-dark);
-		color: var(--gray-0);
-	}
+  .content :global(blockquote) {
+    font-size: var(--text-lg);
+    font-family: var(--font-brand);
+    font-weight: 600;
+    line-height: 1.1;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 0.25rem solid var(--accent-dark);
+    color: var(--gray-0);
+  }
 
-	.back-link,
-	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
+  .back-link,
+  .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
 
-	.back-link:hover,
-	.back-link:focus,
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
-	}
+  .back-link:hover,
+  .back-link:focus,
+  .content :global(a:hover),
+  .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
 
-	@media (min-width: 50em) {
-		.back-link {
-			display: block;
-			align-self: flex-start;
-		}
+  @media (min-width: 50em) {
+    .back-link {
+      display: block;
+      align-self: flex-start;
+    }
 
-		.details {
-			flex-direction: row;
-			gap: 2.5rem;
-		}
+    .details {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
 
-		.content :global(blockquote) {
-			font-size: var(--text-2xl);
-		}
-	}
+    .content :global(blockquote) {
+      font-size: var(--text-2xl);
+    }
+  }
 </style>

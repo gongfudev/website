@@ -1,0 +1,52 @@
+---
+// This page displays links to all sessions that are tagged with a specific techno.
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SessionLink from '../../components/SessionLink.astro';
+
+// This function generates the static paths for your Astro pages based on technos.
+export async function getStaticPaths() {
+  // Get all sessions by globbing the sessions directory for markdown files.
+  const allSessions = await getCollection('sessions');
+
+  // Extract all unique technos from the sessions' frontmatter.
+  const uniqueTechnos = [
+    ...new Set(allSessions.map((session) => session.data.technos).flat()),
+  ];
+
+  // Return an array of objects, each containing a techno and the sessions associated with that techno.
+  return uniqueTechnos.map((techno) => {
+    // Filter the sessions for those that include the current techno.
+    const filteredSessions = allSessions.filter((session) =>
+      session.data.technos.includes(techno)
+    );
+
+    // Return an object with the techno as a parameter and the filtered sessions as a prop.
+    return {
+      params: { techno },
+      props: { sessions: filteredSessions },
+    };
+  });
+}
+
+// Extract the techno from the Astro params.
+const { techno } = Astro.params;
+
+// Extract the sessions from the Astro props.
+const { sessions } = Astro.props;
+---
+
+<BaseLayout title={techno}>
+  <h4>Sessions tagged with {techno}</h4>
+  <ul>
+    {
+      sessions.map((session) => (
+        <SessionLink
+          url={`/sessions/${session.slug}/`}
+          title={session.data.title}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>
