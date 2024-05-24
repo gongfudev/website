@@ -5,18 +5,14 @@ img: /assets/stock-1L.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
 
-tracks:
-  - Astro content collections
-techno:
-  - astro
-  - vercel
-audience:
-  - Dev
+tracks: []
+technos: ["vercel","lit","astro"]
+audiences: ["advanced"]
 ---
 
 ## 01.05.2024
 
-Wrap-up of our [Gōng-fu I/O Weekly · Hack Session #626 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfuio/events/300357083/) meetup.
+Wrap-up of our [Gōng-fu DEV Weekly · Hack Session #626 ✼ Remotely ✼](https://www.meetup.com/fr-FR/gōngfuio/events/300357083/) meetup.
 
 ### Projects
 

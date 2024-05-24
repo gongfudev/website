@@ -17,12 +17,17 @@ export async function convertProtoToMdFile(
   issue,
   proto,
   destDir,
+  randomize,
   verbose = false,
 ) {
   debugLog("ISSUE JSON", JSON.stringify(issue, null, 2), verbose);
   debugLog("TITLE", issue.title, verbose);
   debugLog("createdAt", createdAt(issue), verbose);
-  debugLog("AUTHOR URL LOGIN", issue.author.url + " " + issue.author.login, verbose);
+  debugLog(
+    "AUTHOR URL LOGIN",
+    issue.author.url + " " + issue.author.login,
+    verbose,
+  );
   debugLog("BODY", issue.body, verbose);
 
   // Collect comments
@@ -51,6 +56,21 @@ export async function convertProtoToMdFile(
     .replace("<BODY>", issue.body)
     .replace("<AUTHOR_LOGIN>", authorLoginAt(issue))
     .replace("<COMMENTS>", comments);
+
+  if (randomize) {
+    proto = proto.replace(
+      /audiences:.*\n/,
+      `audiences: ${randomPick(["beginner", "intermediate", "advanced"])}\n`,
+    );
+    proto = proto.replace(
+      /technos:.*\n/,
+      `technos: ${randomPick(["astro", "vercel", "lit"])}\n`,
+    );
+    proto = proto.replace(
+      /tracks:.*\n/,
+      `tracks: ${randomPick(["web", "mobile", "desktop"])}\n`,
+    );
+  }
 
   // Make the filename from the issue title
   const filename = issue.title
@@ -103,4 +123,24 @@ function debugLog(label, string, verbose = false) {
       `\n============================ ${label.toUpperCase()}:\n${string}\n============================\n`,
     );
   }
+}
+
+/**
+ * randomPick picks randomly 0 to length elements from input array
+ *
+ * @param {string[]} arr
+ * @returns {string}
+ */
+function randomPick(arr) {
+  const result = [];
+  const length = Math.floor(Math.random() * (arr.length + 1));
+  const copyArr = [...arr]; // Create a copy of the array to avoid mutating the original array
+
+  for (let i = 0; i < length; i++) {
+    const index = Math.floor(Math.random() * copyArr.length);
+    result.push(copyArr[index]);
+    copyArr.splice(index, 1); // Remove the selected element from the array
+  }
+
+  return JSON.stringify(result);
 }

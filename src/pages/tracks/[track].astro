@@ -1,0 +1,52 @@
+---
+// This page displays links to all sessions that are tagged with a specific track.
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SessionLink from '../../components/SessionLink.astro';
+
+// This function generates the static paths for your Astro pages based on tracks.
+export async function getStaticPaths() {
+  // Get all sessions by globbing the sessions directory for markdown files.
+  const allSessions = await getCollection('sessions');
+
+  // Extract all unique tracks from the sessions' frontmatter.
+  const uniqueTracks = [
+    ...new Set(allSessions.map((session) => session.data.tracks).flat()),
+  ];
+
+  // Return an array of objects, each containing a track and the sessions associated with that track.
+  return uniqueTracks.map((track) => {
+    // Filter the sessions for those that include the current track.
+    const filteredSessions = allSessions.filter((session) =>
+      session.data.tracks.includes(track)
+    );
+
+    // Return an object with the track as a parameter and the filtered sessions as a prop.
+    return {
+      params: { track },
+      props: { sessions: filteredSessions },
+    };
+  });
+}
+
+// Extract the track from the Astro params.
+const { track } = Astro.params;
+
+// Extract the sessions from the Astro props.
+const { sessions } = Astro.props;
+---
+
+<BaseLayout title={track}>
+  <h4>Sessions tagged with {track}</h4>
+  <ul>
+    {
+      sessions.map((session) => (
+        <SessionLink
+          url={`/sessions/${session.slug}/`}
+          title={session.data.title}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>

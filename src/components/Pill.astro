@@ -1,32 +1,36 @@
 ---
-const { style } = Astro.props;
+const { style, tagName } = Astro.props;
+
+// console.log('Pill style', style);
 ---
-<div class:list={[ 'pill', style ]}><slot /></div>
+
+<a class:list={['pill', style]} href={`/${style}s/${tagName}`}>{tagName}</a>
 
 <style>
-	.pill {
-		display: flex;
-		padding: 0.5rem 1rem;
-		gap: 0.5rem;
-		color: var(--accent-text-over);
-		border: 1px solid var(--accent-regular);
-		background-color: var(--accent-regular);
-		border-radius: 999rem;
-		font-size: var(--text-md);
-		line-height: 1.35;
-		white-space: nowrap;
-	}
+  .pill {
+    display: flex;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+    color: var(--accent-text-over);
+    border: 1px solid var(--accent-regular);
+    background-color: var(--accent-regular);
+    border-radius: 999rem;
+    font-size: var(--text-md);
+    line-height: 1.35;
+    white-space: nowrap;
+    margin-bottom: 0.2rem;
+  }
 
   .pill.audience {
-		border-color: var(--accent-dark);
+    border-color: var(--accent-dark);
     background-color: var(--accent-dark);
   }
-  .pill.tracks {
+  .pill.track {
     border-color: var(--accent-regular);
     background-color: var(--accent-regular);
   }
   .pill.techno {
-		border-color: var(--accent-light);
+    border-color: var(--accent-light);
     background-color: var(--accent-light);
   }
 </style>

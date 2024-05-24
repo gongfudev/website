@@ -7,6 +7,7 @@ import ContactCTA from '../components/ContactCTA.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
+import AllTags from '../components/AllTags.astro';
 
 const projects = (await getCollection('sessions')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -24,6 +25,7 @@ const projects = (await getCollection('sessions')).sort(
         tagline='See our most recent code & study sessions below to get an idea of our past projects.'
         align='start'
       />
+      <AllTags />
       <Grid>
         {
           projects.slice(0, 6).map((project) => (
@@ -33,17 +35,8 @@ const projects = (await getCollection('sessions')).sort(
           ))
         }
       </Grid>
-      <Grid>
-        <li>
-          List of ‹Audience› tags
-        </li>
-        <li>
-          List of ‹Tracks› tags
-        </li>
-        <li>
-          List of ‹Techno› tags
-        </li>
-      </Grid>
+
       <ContactCTA />
+    </main>
   </div>
 </BaseLayout>

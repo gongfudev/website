@@ -1,0 +1,52 @@
+---
+// This page displays links to all sessions that are tagged with a specific audience.
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SessionLink from '../../components/SessionLink.astro';
+
+// This function generates the static paths for your Astro pages based on audiences.
+export async function getStaticPaths() {
+  // Get all sessions by globbing the sessions directory for markdown files.
+  const allSessions = await getCollection('sessions');
+
+  // Extract all unique audiences from the sessions' frontmatter.
+  const uniqueAudiences = [
+    ...new Set(allSessions.map((session) => session.data.audiences).flat()),
+  ];
+
+  // Return an array of objects, each containing an audience and the sessions associated with that audience.
+  return uniqueAudiences.map((audience) => {
+    // Filter the sessions for those that include the current audience.
+    const filteredSessions = allSessions.filter((session) =>
+      session.data.audiences.includes(audience)
+    );
+
+    // Return an object with the audience as a parameter and the filtered sessions as a prop.
+    return {
+      params: { audience },
+      props: { sessions: filteredSessions },
+    };
+  });
+}
+
+// Extract the audience from the Astro params.
+const { audience } = Astro.params;
+
+// Extract the sessions from the Astro props.
+const { sessions } = Astro.props;
+---
+
+<BaseLayout title={audience}>
+  <h4>Sessions tagged with {audience}</h4>
+  <ul>
+    {
+      sessions.map((session) => (
+        <SessionLink
+          url={`/sessions/${session.slug}/`}
+          title={session.data.title}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>

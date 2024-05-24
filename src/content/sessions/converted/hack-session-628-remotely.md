@@ -5,18 +5,14 @@ img: /assets/stock-1L.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
 
-tracks:
-  - Astro content collections
-techno:
-  - astro
-  - vercel
-audience:
-  - Dev
+tracks: ["desktop","mobile"]
+technos: ["astro"]
+audiences: ["intermediate"]
 ---
 
 ## 15.05.2024
 
-Wrap-up of our [Gōng-fu I/O Weekly · Hack Session #628 ✼ Remotely ✼](https://www.meetup.com/gōngfudev/events/300642395/) meetup.
+Wrap-up of our [Gōng-fu DEV Weekly · Hack Session #628 ✼ Remotely ✼](https://www.meetup.com/gōngfudev/events/300642395/) meetup.
 
 ### Projects
 
@@ -31,6 +27,8 @@ Wrap-up of our [Gōng-fu I/O Weekly · Hack Session #628 ✼ Remotely ✼](https
 [olange](https://github.com/olange) | 2024-05-08
 
 <hr/>
+
+## Feedback on the session of @olange and @rudifa
 
 Review of @rudifa's work on migrating the descriptions and comments of the issues of this repository, using the GitHub GraphQL API, to a [plain JSON file](https://github.com/rudifa/gongfudev-website/blob/add-hack-sessions/src/data/issues.json); and discussion about how to pivot this data to the upcoming website of Gōng-fu DEV, built with Astro (gongfudev/website#13).
 
