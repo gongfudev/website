@@ -105,6 +105,20 @@ Options:
 
 `scripts/convert-to-md.js -i 7 -n 5` converts 5 issues starting from the 7th issue (0 based).
 
+```
+% scripts/convert-to-md.js -h
+
+This script converts GitHub issues to markdown files.
+
+Options:
+      --version    Show version number                                 [boolean]
+  -i, --index      Convert starting with ith issue         [number] [default: 0]
+  -n, --number     Convert n issues             [number] [required] [default: 0]
+  -r, --randomize  Randomize tags in generated files                   [boolean]
+  -v, --verbose    Run with verbose logging                            [boolean]
+  -h, --help       Show help                                           [boolean]
+```
+
 ### Testing the current (tracks, technos, audiences) features
 
 1. Page Sessions now displays **lists of all tags** found in all sessions, grouped under the corresponding tag type name.
