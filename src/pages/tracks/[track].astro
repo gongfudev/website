@@ -9,36 +9,40 @@ import SessionLink from '../../components/SessionLink.astro';
 export async function getStaticPaths() {
   // Get all sessions by globbing the sessions directory for markdown files.
   const allSessions = await getCollection('sessions');
-
-  // Extract all unique tracks from the sessions' frontmatter.
-  const uniqueTracks = [
-    ...new Set(allSessions.map((session) => session.data.tracks).flat()),
-  ];
+  const allTracks = await getCollection('tracks');
 
   // Return an array of objects, each containing a track and the sessions associated with that track.
-  return uniqueTracks.map((track) => {
+  return allTracks.map((trackEntry) => {
     // Filter the sessions for those that include the current track.
     const filteredSessions = allSessions.filter((session) =>
-      session.data.tracks.includes(track)
+      session.data.tracks
+        .map((track) => track.slug)
+        .includes(trackEntry.slug)
     );
 
     // Return an object with the track as a parameter and the filtered sessions as a prop.
     return {
-      params: { track },
-      props: { sessions: filteredSessions },
+      params: { track: trackEntry.slug },
+      props: { trackEntry, sessions: filteredSessions },
     };
   });
 }
 
 // Extract the track from the Astro params.
-const { track } = Astro.params;
+// const { track } = Astro.params;
 
 // Extract the sessions from the Astro props.
-const { sessions } = Astro.props;
+const { sessions, trackEntry } = Astro.props;
+
+// Get the track entry from the tracks collection.
+const { Content } = await trackEntry.render();
 ---
 
-<BaseLayout title={track}>
-  <h4>Sessions tagged with {track}</h4>
+<BaseLayout title={trackEntry.data.label}>
+  <h4>{trackEntry.data.title} track</h4>
+  <Content />
+
+  <h5>Session list</h5>
   <ul>
     {
       sessions.map((session) => (

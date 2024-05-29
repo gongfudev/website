@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntries } from 'astro:content';
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -10,6 +10,7 @@ import Pill from '../../components/Pill.astro';
 
 interface Props {
   entry: CollectionEntry<'sessions'>;
+  tracks: CollectionEntry<'tracks'>[];
 }
 
 // This is a dynamic route that generates a page for every Markdown file in src/content/
@@ -17,9 +18,13 @@ interface Props {
 // https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
   const session = await getCollection('sessions');
-  return session.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+
+  return Promise.all(session.map(async (entry) => {
+    const tracks = await getEntries(entry.data.tracks);
+    return {
+      params: { slug: entry.slug },
+      props: { entry, tracks },
+    }
   }));
 }
 
@@ -35,7 +40,7 @@ export async function getStaticPaths() {
 // fix:
 // export const prerender = true;
 
-const { entry } = Astro.props;
+const { entry, tracks } = Astro.props;
 const { Content } = await entry.render();
 
 // console.log('[...slug] entry.data.tracks', entry.data.tracks);
