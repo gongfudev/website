@@ -56,17 +56,23 @@ const { Content } = await entry.render();
               <div class='tags'>
                 {
                   entry.data.audiences.map((audience) => (
-                    <Pill style='audience' tagName={audience} />
+                    <a href=`/audiences/${audience}` >
+                      <Pill style='audience'>{audience}</Pill>
+                    </a>
                   ))
                 }
                 {
-                  entry.data.tracks.map((track) => (
-                    <Pill style='track' tagName={track} />
+                  tracks.map((track) => (
+                    <a href=`/tracks/${track.slug}` >
+                      <Pill style='track'>{track.data.label}</Pill>
+                    </a>
                   ))
                 }
                 {
                   entry.data.technos.map((techno) => (
-                    <Pill style='techno' tagName={techno} />
+                    <a href=`/technos/${techno}` >
+                      <Pill style='techno'>{techno}</Pill>
+                    </a>
                   ))
                 }
               </div>

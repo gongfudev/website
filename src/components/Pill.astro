@@ -1,10 +1,10 @@
 ---
-const { style, tagName } = Astro.props;
+const { style } = Astro.props;
 
 // console.log('Pill style', style);
 ---
 
-<a class:list={['pill', style]} href={`/${style}s/${tagName}`}>{tagName}</a>
+<div class:list={['pill', style]}><slot/></div>
 
 <style>
   .pill {
