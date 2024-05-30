@@ -73,21 +73,6 @@ Options:
   -h, --help       Show help                                           [boolean]
 ```
 
-```
-% scripts/convert-to-md.js -h
-
-This script converts GitHub issues to markdown files.
-
-Options:
-      --version  Show version number                                   [boolean]
-  -i, --issue    Convert ith issue                         [number] [default: 0]
-  -n, --number   Convert first n issues                    [number] [default: 0]
-  -v, --verbose  Run with verbose logging                              [boolean]
-  -h, --help     Show help                                             [boolean]
-```
-
-## Branch dev-rudifa: features under development
-
 | src/pages/                 | url                                          | Effect                                           | Status |
 | :------------------------- | :------------------------------------------- | :----------------------------------------------- | ------ |
 | tracks/[track].astro       | <http://localhost:4321/tracks>               | display all <tracks> tags found in sessions      | works  |
@@ -128,3 +113,11 @@ Options:
 3. Clicking on a session title displays the session content.
 
 4. You can open the pages for tracks, technos, and audiences by invoking the corresponding URLs (`http://localhost:4321/tracks`, `http://localhost:4321/technos`, `http://localhost:4321/audiences`).
+
+## Branch dev-rudifa: features under development
+
+Previous work updated and merged to goungfuio/website main branch by olange.
+
+NEXT, on branch dev:
+
+- Propagate olange's changes on `tracks` to `technos` and `audiences`.
