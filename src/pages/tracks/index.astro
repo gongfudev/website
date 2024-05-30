@@ -1,25 +1,11 @@
 ---
-// This page diplays all track tags found in the sessions collection
+// This page diplays all track tags found in the tracks collection
 
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const allSessions = await getCollection('sessions');
-const tracks = [
-  ...new Set(allSessions.map((session) => session.data.tracks).flat()),
-];
-const pageTitle = 'Tag Index';
+import TagsTyped from '../../components/TagsTyped.astro';
+const pageTitle = 'Tracks';
 ---
 
 <BaseLayout title={pageTitle}>
-  {
-    (
-      <div class='tags'>
-        {tracks.map((track) => (
-          <p class='tag'>
-            <a href={`/tracks/${track}`}>{track}</a>
-          </p>
-        ))}
-      </div>
-    )
-  }
+  <TagsTyped title={pageTitle} contentFolder='tracks' />
 </BaseLayout>

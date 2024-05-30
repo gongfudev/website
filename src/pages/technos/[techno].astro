@@ -9,36 +9,40 @@ import SessionLink from '../../components/SessionLink.astro';
 export async function getStaticPaths() {
   // Get all sessions by globbing the sessions directory for markdown files.
   const allSessions = await getCollection('sessions');
-
-  // Extract all unique technos from the sessions' frontmatter.
-  const uniqueTechnos = [
-    ...new Set(allSessions.map((session) => session.data.technos).flat()),
-  ];
+  const allTracks = await getCollection('technos');
 
   // Return an array of objects, each containing a techno and the sessions associated with that techno.
-  return uniqueTechnos.map((techno) => {
+  return allTracks.map((technoEntry) => {
     // Filter the sessions for those that include the current techno.
     const filteredSessions = allSessions.filter((session) =>
-      session.data.technos.includes(techno)
+      session.data.technos
+        .map((techno) => techno.slug)
+        .includes(technoEntry.slug)
     );
 
     // Return an object with the techno as a parameter and the filtered sessions as a prop.
     return {
-      params: { techno },
-      props: { sessions: filteredSessions },
+      params: { techno: technoEntry.slug },
+      props: { technoEntry, sessions: filteredSessions },
     };
   });
 }
 
 // Extract the techno from the Astro params.
-const { techno } = Astro.params;
+// const { techno } = Astro.params;
 
 // Extract the sessions from the Astro props.
-const { sessions } = Astro.props;
+const { sessions, technoEntry } = Astro.props;
+
+// Get the techno entry from the technos collection.
+const { Content } = await technoEntry.render();
 ---
 
-<BaseLayout title={techno}>
-  <h4>Sessions tagged with {techno}</h4>
+<BaseLayout title={technoEntry.data.label}>
+  <h4>{technoEntry.data.title} techno</h4>
+  <Content />
+
+  <h5>Session list</h5>
   <ul>
     {
       sessions.map((session) => (

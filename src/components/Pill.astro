@@ -1,10 +1,8 @@
 ---
 const { style } = Astro.props;
-
-// console.log('Pill style', style);
 ---
 
-<div class:list={['pill', style]}><slot/></div>
+<div class:list={['pill', style]}><slot /></div>
 
 <style>
   .pill {

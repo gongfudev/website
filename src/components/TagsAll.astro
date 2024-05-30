@@ -1,0 +1,11 @@
+---
+// This component displays a list of tags for audiences, technos and tracks.
+
+import TagsTyped from './TagsTyped.astro';
+---
+
+<div style='display: flex; justify-content: space-between;'>
+  <TagsTyped title='Audiences' contentFolder='audiences' />
+  <TagsTyped title='Technos' contentFolder='technos' />
+  <TagsTyped title='Tracks' contentFolder='tracks' />
+</div>
