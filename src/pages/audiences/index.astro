@@ -3,23 +3,19 @@
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const allSessions = await getCollection('sessions');
-const audiences = [
-  ...new Set(allSessions.map((session) => session.data.audiences).flat()),
-];
+const audiences = await getCollection('audiences');
 const pageTitle = 'Tag Index';
 ---
 
 <BaseLayout title={pageTitle}>
-  {
-    (
-      <div class='tags'>
-        {audiences.map((audience) => (
-          <p class='tag'>
-            <a href={`/audiences/${audience}`}>{audience}</a>
-          </p>
-        ))}
-      </div>
-    )
-  }
+  <div class='tags'>
+    <h5>Audiences</h5>
+    {
+      audiences.map((audience) => (
+        <p class='tag'>
+          <a href={`/audiences/${audience.slug}`}>{audience.data.label}</a>
+        </p>
+      ))
+    }
+  </div>
 </BaseLayout>

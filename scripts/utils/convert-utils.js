@@ -58,18 +58,7 @@ export async function convertProtoToMdFile(
     .replace("<COMMENTS>", comments);
 
   if (randomize) {
-    proto = proto.replace(
-      /audiences:.*\n/,
-      `audiences: ${randomPick(["beginner", "intermediate", "advanced"])}\n`,
-    );
-    proto = proto.replace(
-      /technos:.*\n/,
-      `technos: ${randomPick(["astro", "vercel", "lit"])}\n`,
-    );
-    proto = proto.replace(
-      /tracks:.*\n/,
-      `tracks: ${randomPick(["web", "mobile", "desktop"])}\n`,
-    );
+    proto = randomizeTags(proto);
   }
 
   // Make the filename from the issue title
@@ -90,6 +79,8 @@ export async function convertProtoToMdFile(
   }
 }
 
+
+
 function createdAt(issueOrNode) {
   return issueOrNode.createdAt.substring(0, 10);
 }
@@ -99,30 +90,38 @@ function authorLoginAt(issueOrNode) {
 }
 
 /**
- * wrappedInDiv wraps the content in a div with some styling
- * NOT useful when content contains markdown
+ * randomizeTags adds tags randomly picked from the available hardcoded tags
+ * which must match the slug values in *.md files from src/content/subdirectories
  *
- * @param {string} content
- * @returns
- */
-function wrappedInDiv(content) {
-  // return `<div style="border: 1px solid black; padding: 10px;">${content}</div>`;
-  return content;
-}
-
-/**
- * debugLog logs a string with a label if verbose
+ * gongfudev-website %  grep -rn --include="*.md" slug src/content
+ * src/content/technos/astro.md:2:slug: astro
+ * src/content/technos/vercel.md:2:slug: vercel
+ * src/content/technos/lit.md:2:slug: lit
+ * src/content/audiences/dev.md:2:slug: dev
+ * src/content/audiences/design.md:2:slug: design
+ * src/content/tracks/desktop.md:2:slug: desktop
+ * src/content/tracks/web.md:2:slug: web
+ * src/content/tracks/AstroContentCollections.md:2:slug: AstroContentCollections
+ * src/content/tracks/AstroComponents.md:2:slug: AstroComponents
+ * src/content/tracks/mobile.md:2:slug: mobile
  *
- * @param {string} label
- * @param {string} string
- * @param {boolean} verbose
+ * @param {*} proto
+ * @returns {*} proto
  */
-function debugLog(label, string, verbose = false) {
-  if (verbose) {
-    console.error(
-      `\n============================ ${label.toUpperCase()}:\n${string}\n============================\n`,
-    );
-  }
+function randomizeTags(proto) {
+  proto = proto.replace(
+    /audiences:.*\n/,
+    `audiences: ${randomPick(["dev", "design"])}\n`,
+  );
+  proto = proto.replace(
+    /technos:.*\n/,
+    `technos: ${randomPick(["astro", "vercel", "lit"])}\n`,
+  );
+  proto = proto.replace(
+    /tracks:.*\n/,
+    `tracks: ${randomPick(["AstroComponents", "AstroContentCollections", "web", "mobile", "desktop"])}\n`,
+  );
+  return proto;
 }
 
 /**
@@ -143,4 +142,20 @@ function randomPick(arr) {
   }
 
   return JSON.stringify(result);
+}
+
+
+/**
+ * debugLog logs a string with a label if verbose
+ *
+ * @param {string} label
+ * @param {string} string
+ * @param {boolean} verbose
+ */
+function debugLog(label, string, verbose = false) {
+  if (verbose) {
+    console.error(
+      `\n============================ ${label.toUpperCase()}:\n${string}\n============================\n`,
+    );
+  }
 }

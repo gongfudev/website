@@ -1,13 +1,9 @@
 ---
+// This component displays a list of tags for audiences, technos and tracks.
 import { getCollection } from 'astro:content';
-const allSessions = await getCollection('sessions');
 
-const audiences = [
-  ...new Set(allSessions.map((session) => session.data.audiences).flat()),
-];
-const technos = [
-  ...new Set(allSessions.map((session) => session.data.technos).flat()),
-];
+const audiences = await getCollection('audiences');
+const technos = await getCollection('technos');
 const tracks = await getCollection('tracks');
 ---
 
@@ -17,7 +13,7 @@ const tracks = await getCollection('tracks');
     {
       audiences.map((audience) => (
         <p class='tag'>
-          <a href={`/audiences/${audience}`}>{audience}</a>
+          <a href={`/audiences/${audience.slug}`}>{audience.data.label}</a>
         </p>
       ))
     }
@@ -27,7 +23,7 @@ const tracks = await getCollection('tracks');
     {
       technos.map((techno) => (
         <p class='tag'>
-          <a href={`/technos/${techno}`}>{techno}</a>
+          <a href={`/technos/${techno.slug}`}>{techno.data.label}</a>
         </p>
       ))
     }

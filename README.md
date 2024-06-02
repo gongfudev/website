@@ -116,8 +116,4 @@ Options:
 
 ## Branch dev-rudifa: features under development
 
-Previous work updated and merged to goungfuio/website main branch by olange.
-
-NEXT, on branch dev:
-
 - Propagate olange's changes on `tracks` to `technos` and `audiences`.

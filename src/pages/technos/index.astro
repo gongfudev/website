@@ -3,23 +3,19 @@
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const allSessions = await getCollection('sessions');
-const technos = [
-  ...new Set(allSessions.map((session) => session.data.technos).flat()),
-];
+const technos = await getCollection('technos');
 const pageTitle = 'Tag Index';
 ---
 
 <BaseLayout title={pageTitle}>
-  {
-    (
-      <div class='tags'>
-        {technos.map((techno) => (
-          <p class='tag'>
-            <a href={`/technos/${techno}`}>{techno}</a>
-          </p>
-        ))}
-      </div>
-    )
-  }
+  <div class='tags'>
+    <h5>Technos</h5>
+    {
+      technos.map((techno) => (
+        <p class='tag'>
+          <a href={`/technos/${techno.slug}`}>{techno.data.label}</a>
+        </p>
+      ))
+    }
+  </div>
 </BaseLayout>

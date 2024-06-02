@@ -6,8 +6,8 @@ img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
 
 tracks: []
-technos: ["vercel"]
-audiences: ["intermediate"]
+technos: []
+audiences: []
 ---
 
 ## 06.03.2024

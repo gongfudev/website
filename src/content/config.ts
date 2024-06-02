@@ -1,12 +1,16 @@
 import { defineCollection, reference, z } from "astro:content";
 
-const tracks = defineCollection({
+const tags = defineCollection({
   type: "content",
   schema: z.object({
     label: z.string(),
-    title: z.string()
+    title: z.string(),
   }),
 });
+
+const audiences = tags;
+const technos = tags;
+const tracks = tags;
 
 const sessions = defineCollection({
   type: "content",
@@ -14,12 +18,12 @@ const sessions = defineCollection({
     title: z.string(),
     description: z.string(),
     publishDate: z.coerce.date(),
-    tracks: z.array(reference('tracks')),
-    audiences: z.array(z.string()),
-    technos: z.array(z.string()),
+    audiences: z.array(reference("audiences")),
+    technos: z.array(reference("technos")),
+    tracks: z.array(reference("tracks")),
     img: z.string(),
     img_alt: z.string().optional(),
   }),
 });
 
-export const collections = { tracks, sessions };
+export const collections = { audiences, technos, tracks, sessions };
