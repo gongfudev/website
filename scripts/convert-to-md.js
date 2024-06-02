@@ -26,6 +26,7 @@ const argv = yargs(hideBin(process.argv))
     alias: "randomize",
     describe: "Randomize tags in generated files",
     type: "boolean",
+    default: true,
   })
   .option("v", {
     alias: "verbose",
