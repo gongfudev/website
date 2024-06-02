@@ -1,0 +1,22 @@
+---
+// This component displays a list of tags for a given content folder.
+import { getCollection } from 'astro:content';
+interface Props {
+  title: string;
+  contentFolder: string;
+}
+
+const { title, contentFolder } = Astro.props as Props;
+const tags = await getCollection(contentFolder);
+---
+
+<div class='tags'>
+  <h5>{title}</h5>
+  {
+    tags.map((tags) => (
+      <p class='tag'>
+        <a href={`/${contentFolder}/${tags.slug}`}>{tags.data.label}</a>
+      </p>
+    ))
+  }
+</div>

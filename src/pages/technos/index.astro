@@ -1,21 +1,11 @@
 ---
-// This page diplays all techno tags found in the sessions collection
+// This page diplays all techno tags found in the technos collection
 
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const technos = await getCollection('technos');
-const pageTitle = 'Tag Index';
+import TagsTyped from '../../components/TagsTyped.astro';
+const pageTitle = 'Technos';
 ---
 
 <BaseLayout title={pageTitle}>
-  <div class='tags'>
-    <h5>Technos</h5>
-    {
-      technos.map((techno) => (
-        <p class='tag'>
-          <a href={`/technos/${techno.slug}`}>{techno.data.label}</a>
-        </p>
-      ))
-    }
-  </div>
+  <TagsTyped title={pageTitle} contentFolder='technos' />
 </BaseLayout>

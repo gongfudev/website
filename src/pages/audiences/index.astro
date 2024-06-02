@@ -1,21 +1,11 @@
 ---
-// This page diplays all audience tags found in the sessions collection
+// This page diplays all audience tags found in the audiences collection
 
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const audiences = await getCollection('audiences');
-const pageTitle = 'Tag Index';
+import TagsTyped from '../../components/TagsTyped.astro';
+const pageTitle = 'Audiences';
 ---
 
 <BaseLayout title={pageTitle}>
-  <div class='tags'>
-    <h5>Audiences</h5>
-    {
-      audiences.map((audience) => (
-        <p class='tag'>
-          <a href={`/audiences/${audience.slug}`}>{audience.data.label}</a>
-        </p>
-      ))
-    }
-  </div>
+  <TagsTyped title={pageTitle} contentFolder='audiences' />
 </BaseLayout>
