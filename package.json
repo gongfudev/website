@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^7.6.0",
-    "@shoelace-style/shoelace": "^2.15.0",
+    "@shoelace-style/shoelace": "^2.16.0",
     "@vercel/analytics": "^1.2.2",
     "astro": "^4.8.7",
     "lit": "^3.2.0",
