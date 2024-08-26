@@ -5,8 +5,8 @@ img: /assets/stock-1L.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
 
-tracks: ["desktop","AstroContentCollections","web","mobile"]
-technos: ["vercel","lit","astro"]
+tracks: []
+technos: []
 audiences: []
 ---
 
@@ -22,7 +22,7 @@ Wrap-up of our [Gōng-fu DEV Weekly · Hack Session #630 ✼ Remotely ✼](https
 ### See also
 
 * #629 Previous session
-* `TODO` Next session
+* #631 Next session
 
 [olange](https://github.com/olange) | 2024-05-22
 

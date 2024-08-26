@@ -5,9 +5,9 @@ img: /assets/stock-1L.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
 
-tracks: ["mobile","AstroContentCollections","AstroComponents","desktop","web"]
-technos: ["astro","vercel","lit"]
-audiences: ["dev","design"]
+tracks: []
+technos: []
+audiences: []
 ---
 
 ## 03.01.2024
