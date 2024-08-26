@@ -9,6 +9,8 @@
     "clean": "del-cli .astro .vercel node_modules/.vite",
     "format": "prettier \"src/**/*.{astro,js,html,css,mdx}\" --list-different --write",
     "lint": "eslint \"src/**/*.{astro,js,ts}\"",
+    "migrate:fetch": "node scripts/fetch-repo-issues.js",
+    "migrate:convert": "node scripts/convert-to-md.js",
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build",
