@@ -6,6 +6,7 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
+    "clean": "del-cli .astro .vercel node_modules/.vite",
     "format": "prettier \"src/**/*.{astro,js,html,css}\" --write",
     "lint": "eslint src --ext .js,.astro",
     "dev": "astro dev --host",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^7.10.0",
+    "del-cli": "^5.1.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
