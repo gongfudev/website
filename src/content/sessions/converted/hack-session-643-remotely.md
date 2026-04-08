@@ -22,7 +22,7 @@ Wrap-up of our [Gōng-fu DEV Weekly · Hack Session #643 ✼ Remotely ✼](https
 ### See also
 
 * #642 Previous session
-* `TODO` Next session
+* #644 Next session
 
 [olange](https://github.com/olange) | 2024-08-26
 
